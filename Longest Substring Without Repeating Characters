@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<math.h>
+#include<cstring>
+#include<stdio.h>
+int main()
+{
+    char arr[100];
+    scanf("%s",arr);
+    //printf("%s",arr);
+   int len=strlen(arr);
+    //printf("%d",len);
+    
+    
+    int ch[256];
+    memset(ch,-1,sizeof(ch));
+    
+    int l=1;
+    int r=1;
+    len--;
+    
+  
+     
+  // len--;
+ 
+    int max=0;
+    while(r<len)
+    {
+        char a=arr[r];
+        if(ch[a]!=-1)
+        {
+           if(ch[a]>=l)
+          {
+            l=ch[a]+1;
+          }
+        }
+        ch[a]=r;
+        max=fmax(max,r-l+1);
+        r++;
+        
+    }
+    printf("%d",max);
+    
+    
+}
