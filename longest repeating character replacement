@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<cstring>
+#include<stdlib.h>
+#include<math.h>
+int main()
+{
+    char arr[100];
+    scanf("%s",arr);
+    int len=strlen(arr);
+    int k;
+    scanf("%d",&k);
+   
+     int ar[26];
+     
+     int l=0;
+     int r=0;
+     int max=0;
+     int ma=0;
+     while(r<len)
+     {
+        // char a=arr[r];
+         ar[arr[r]-'A']++;
+         max=fmax(max,ar[arr[r]-'A']);
+         if(((r-l+1)-max)>k)
+         {
+             ar[arr[l]-'A']--;
+             
+             for(int i=0;i<25;i++)
+             {
+                 max=fmax(max,ar[i]);
+             }
+             l++;
+             
+         }
+         else if(((r-l+1)-max)<=k)
+         {
+             ma=fmax(ma,r-l+1);
+         }
+         r++;
+     }
+     printf("%d",ma);
+}
