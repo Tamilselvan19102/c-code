@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<cstring>
+#include<stdlib.h>
+#include<math.h>
+int main()
+{
+    char arr[100];
+    scanf("%s",arr);
+    int len=strlen(arr);
+    
+    int ar[3];
+    memset(ar,-1,sizeof(char));
+    int count=0;
+    
+    for(int i=1;i<len-1;i++)
+    {
+        int ch=arr[i]-'a';
+        ar[ch]=i;
+        
+        if(ar[0]!=-1 && ar[1]!=-1 && ar[2]!=-1)
+        {
+            count=count+fmin(ar[0],fmin(ar[1],ar[2]));
+        }
+    }
+    printf("%d",count);
+}
