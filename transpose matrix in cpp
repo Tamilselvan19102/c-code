@@ -1,0 +1,34 @@
+// You are using GCC
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{ 
+    int a;
+    cin>>a;
+    
+    int arr[a][a];
+    for(int i=0;i<a;i++)
+    {
+        for(int j=0;j<a;j++)
+        {
+            cin>>arr[i][j];
+        }
+    }
+    for(int i=0;i<a;i++)
+    {
+        for(int j=0;j<i;j++)
+        {
+            int temp=arr[i][j];
+            arr[i][j]=arr[j][i];
+            arr[j][i]=temp;
+        }
+    }
+    for(int i=0;i<a;i++)
+    {
+        for(int j=0;j<a;j++)
+        {
+            cout<<arr[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+}
