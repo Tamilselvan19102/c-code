@@ -1,0 +1,96 @@
+// You are using Java
+import java.util.*;
+class node
+{
+    int data;
+    node next;
+    public node(int a)
+    {
+        this.data=a;
+        next=null;
+    }
+}
+class sample
+{
+    public static node head=null;
+    public static node tail=null;
+    public static void insert(int val)
+    {
+        node newnode=new node(val);
+        if(head==null)
+        {
+            head=newnode;
+            tail=newnode;
+        }
+        else{
+            tail.next=newnode;
+            tail=newnode;
+        }
+    }
+    public static void print()
+    {
+        node t=head;
+        while(t!=null)
+        {
+            System.out.print(t.data+" ");
+            t=t.next;
+        }
+    }
+    public static void  delete(int val)
+    {
+        node t=head;
+        if(head.data==val)
+        {
+            head=t.next;
+            return;
+        }
+        node curr=null;
+        while(t!=null)
+        {
+            if(t.data==val)
+            {
+                curr.next=t.next;
+                
+            }
+            curr=t;
+            t=t.next;
+        }
+    }
+      public static void  delete1(int val)
+    {
+        node t=head;
+        if(head.data==val)
+        {
+            head=t.next;
+            return;
+        }
+        node curr=null;
+        int count=1;
+        while(t!=null)
+        {
+            if(count==val)
+            {
+                curr.next=t.next;
+                
+            }
+            curr=t;
+            t=t.next;
+            count++;
+        }
+    }
+    public static void  main(String[]args)
+    {
+        Scanner scanner=new Scanner(System.in);
+        int a=scanner.nextInt();
+        for(int i=0;i<a;i++)
+        {
+            int b=scanner.nextInt();
+            insert(b);
+            
+        }
+       // print();
+        int target=scanner.nextInt();
+        delete(target);
+        print();
+    }
+}
